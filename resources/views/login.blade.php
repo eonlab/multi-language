@@ -110,7 +110,7 @@
 
     $("#locale").change(function () {
       let locale = $('#locale option:selected').val();
-      $.post(`/admin/locale`,{locale: locale}, function () {
+      $.post(`{{ config('admin.route.prefix') }}/locale`,{locale: locale}, function () {
         location.reload();
       })
     });
