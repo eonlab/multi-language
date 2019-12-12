@@ -24,9 +24,14 @@
 <script>
     $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
 
+   
     $(".language").click(function () {
+        let prefix = `{{ config('admin.route.prefix') }}`;
+        if(prefix!=''){
+          prefix='/'+prefix;
+        }
         let id = $(this).data('id');
-        $.post(`{{ config('admin.route.prefix') }}/locale`,{locale: id}, function () {
+        $.post(prefix+`/locale`,{locale: id}, function () {
             location.reload();
         })
     })
