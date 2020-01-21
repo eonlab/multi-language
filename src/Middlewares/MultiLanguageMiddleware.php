@@ -12,8 +12,8 @@ class MultiLanguageMiddleware
     public function handle($request, Closure $next)
     {
         $languages = MultiLanguage::config('languages');
-        if (Cookie::has('locale') && array_key_exists(Cookie::get('locale'), $languages)) {
-            App::setLocale(Cookie::get('locale'));
+        if (Cookie::has('adm_locale') && array_key_exists(Cookie::get('adm_locale'), $languages)) {
+            App::setLocale(Cookie::get('adm_locale'));
         } else {
             $default = MultiLanguage::config('default');
             App::setLocale($default);
