@@ -25,7 +25,7 @@ class MultiLanguageController extends Controller
         $languages = MultiLanguage::config("languages");
 
         $current = MultiLanguage::config('default');
-        if(Cookie::has('locale')) {
+        if(Cookie::has('adm_locale')) {
             $current = Cookie::get('adm_locale');
         }
         return view("multi-language::login", compact('languages', 'current'));
